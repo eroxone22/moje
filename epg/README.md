@@ -1,17 +1,23 @@
-# Combined XMLTV EPG: mujtvprogram.cz + mediaklikk.hu
+# Combined XMLTV EPG: Czech and Hungarian sources
 
-GitHub Actions downloads programme data from both upstream sites using the official iptv-org/epg grabber and merges it into one XMLTV file.
+GitHub Actions runs the official `iptv-org/epg` grabber for five sites and writes their programme data into one XMLTV file.
 
-Output URL (after the first successful workflow run):
+## Sources
+
+- Czech Republic: [mujtvprogram.cz](https://github.com/iptv-org/epg/tree/master/sites/mujtvprogram.cz)
+- Czech Republic: [m.tv.sms.cz](https://github.com/iptv-org/epg/tree/master/sites/m.tv.sms.cz)
+- Hungary: [mediaklikk.hu](https://github.com/iptv-org/epg/tree/master/sites/mediaklikk.hu)
+- Hungary: [port.hu](https://github.com/iptv-org/epg/tree/master/sites/port.hu)
+- Hungary: [tvmusor.hu](https://github.com/iptv-org/epg/tree/master/sites/tvmusor.hu)
+
+## AquaPlay URL
 
 `https://raw.githubusercontent.com/eroxone22/moje/main/epg/epg.xml`
 
-Sources:
-- https://github.com/iptv-org/epg/tree/master/sites/mujtvprogram.cz
-- https://github.com/iptv-org/epg/tree/master/sites/mediaklikk.hu
+Use this as the XMLTV/EPG URL in AquaPlay after the first successful workflow run.
 
-The workflow runs daily at 03:25 UTC and can also be started manually from the Actions tab. It collects a 2-day guide.
+The workflow collects two days of programme data and runs daily at 03:25 UTC. It can also be started manually in the [GitHub Actions tab](https://github.com/eroxone22/moje/actions).
 
-In AquaPlay, use the raw URL above as the XMLTV/EPG URL. Channel matching requires the playlist's tvg-id to match the XMLTV channel id.
+Channel matching requires the playlist's `tvg-id` to match the XMLTV channel `id`. Similar channel names alone are not sufficient.
 
-This repository provides guide data only, not TV streams.
+This repository provides programme guide data only, not TV streams.
