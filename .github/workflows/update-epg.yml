@@ -1,4 +1,4 @@
-name: Build combined EPG (Czech and Hungarian guide sources)
+name: Build combined EPG (mujtvprogram.cz, webtv.sk, tvmusor.hu)
 
 on:
   workflow_dispatch:
@@ -13,7 +13,7 @@ permissions:
 
 concurrency:
   group: combined-epg
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -40,9 +40,9 @@ jobs:
         working-directory: upstream-epg
         run: npm ci
 
-      - name: Download six EPG sources into one XMLTV file
+      - name: Download three EPG sources into one XMLTV file
         working-directory: upstream-epg
-        run: npm run grab -- --sites=mujtvprogram.cz,mediaklikk.hu,m.tv.sms.cz,port.hu,tvmusor.hu,webtv.sk --output=../epg/epg.xml --days=2 --maxConnections=3
+        run: npm run grab -- --sites=mujtvprogram.cz,webtv.sk,tvmusor.hu --output=../epg/epg.xml --days=2 --maxConnections=2
 
       - name: Validate XMLTV output
         run: |
@@ -67,5 +67,5 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Update combined six-source EPG"
+          git commit -m "Update combined three-source EPG"
           git push
