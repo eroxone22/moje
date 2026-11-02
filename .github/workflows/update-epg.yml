@@ -2,6 +2,9 @@ name: Build combined EPG (mujtvprogram.cz + mediaklikk.hu)
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/update-epg.yml"
   schedule:
     - cron: "25 3 * * *"
 
