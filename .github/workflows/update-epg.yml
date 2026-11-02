@@ -40,7 +40,7 @@ jobs:
         working-directory: upstream-epg
         run: npm ci
 
-      - name: Download both guides into one XMLTV file
+      - name: Download five EPG sources into one XMLTV file
         working-directory: upstream-epg
         run: npm run grab -- --sites=mujtvprogram.cz,mediaklikk.hu,m.tv.sms.cz,port.hu,tvmusor.hu --output=../epg/epg.xml --days=2 --maxConnections=3
 
@@ -67,5 +67,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add epg/epg.xml
-          git commit -m "Update combined Czech and Hungarian EPG"
+          git commit -m "Update combined five-source EPG"
           git push
