@@ -6,7 +6,7 @@ GitHub Actions runs the official `iptv-org/epg` grabber for these four sources a
 
 - Czechia: [mujtvprogram.cz](https://github.com/iptv-org/epg/tree/master/sites/mujtvprogram.cz)
 - Slovakia: [webtv.sk](https://github.com/iptv-org/epg/tree/master/sites/webtv.sk)
-- Hungary: [port.hu](https://github.com/iptv-org/epg/blob/master/sites/port.hu/port.hu.channels.xml)
+- Hungary: [tvmustra.hu](https://github.com/iptv-org/epg/tree/master/sites/tvmustra.hu)
 - Slovakia: [horizon.tv](https://github.com/iptv-org/epg/tree/master/sites/horizon.tv)
 
 ## AquaPlay URL
