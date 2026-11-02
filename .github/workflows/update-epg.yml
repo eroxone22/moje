@@ -58,14 +58,26 @@ jobs:
           print(f"Validated {len(channels)} channels and {len(programmes)} programmes")
           PY
 
-      - name: Commit updated guide
+      - name: Publish updated guide
         run: |
-          git add epg/epg.xml
-          if git diff --cached --quiet -- epg/epg.xml; then
-            echo "Guide unchanged."
-            exit 0
-          fi
+          cp epg/epg.xml /tmp/combined-epg.xml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Update combined three-source EPG"
-          git push
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            mkdir -p epg
+            cp /tmp/combined-epg.xml epg/epg.xml
+            git add epg/epg.xml
+            if git diff --cached --quiet -- epg/epg.xml; then
+              echo "Guide unchanged."
+              exit 0
+            fi
+            git commit -m "Update combined three-source EPG"
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Push attempt $attempt failed; retrying with latest main."
+          done
+          echo "Could not publish EPG after three attempts."
+          exit 1
