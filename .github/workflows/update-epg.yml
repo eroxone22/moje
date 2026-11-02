@@ -1,4 +1,4 @@
-name: Build combined EPG (mujtvprogram.cz, webtv.sk, port.hu, horizon.tv)
+name: Build combined EPG (mujtvprogram.cz, webtv.sk, tvmustra.hu, horizon.tv)
 
 on:
   workflow_dispatch:
@@ -42,7 +42,7 @@ jobs:
 
       - name: Download four EPG sources into one XMLTV file
         working-directory: upstream-epg
-        run: npm run grab -- --sites=mujtvprogram.cz,webtv.sk,port.hu,horizon.tv --output=../epg/epg.xml --days=2 --maxConnections=2
+        run: npm run grab -- --sites=mujtvprogram.cz,webtv.sk,tvmustra.hu,horizon.tv --output=../epg/epg.xml --days=2 --maxConnections=2
 
       - name: Validate XMLTV output
         run: |
