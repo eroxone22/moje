@@ -1,20 +1,17 @@
-# SK + CZ + HU XMLTV EPG
+# Combined XMLTV EPG: mujtvprogram.cz + mediaklikk.hu
 
-This folder contains an automatically refreshed combined XMLTV guide for Slovakia, Czechia and Hungary.
+GitHub Actions downloads programme data from both upstream sites using the official iptv-org/epg grabber and merges it into one XMLTV file.
 
-## Source feeds
-
-- Slovakia: Rytec `rytecSK_Basic.xz` (with Rytec mirrors)
-- Czechia: IPTV-EPG.org `epg-cz.xml`
-- Hungary: IPTV-EPG.org `epg-hu.xml`
-- Extra Czech/Slovak shared and sports/movie listings: Rytec feeds where available
-
-The workflow refreshes the combined file daily. The generated guide is published at:
+Output URL (after the first successful workflow run):
 
 `https://raw.githubusercontent.com/eroxone22/moje/main/epg/epg.xml`
 
-## AquaPlay
+Sources:
+- https://github.com/iptv-org/epg/tree/master/sites/mujtvprogram.cz
+- https://github.com/iptv-org/epg/tree/master/sites/mediaklikk.hu
 
-Paste that URL into AquaPlay's EPG/XMLTV URL field. Channel matching still depends on the `tvg-id` values in your M3U playlist matching the XMLTV `channel id` values.
+The workflow runs daily at 03:25 UTC and can also be started manually from the Actions tab. It collects a 2-day guide.
 
-Sources are third-party public XMLTV feeds. Their coverage and availability can change. This repository only combines guide data; it does not provide TV streams.
+In AquaPlay, use the raw URL above as the XMLTV/EPG URL. Channel matching requires the playlist's tvg-id to match the XMLTV channel id.
+
+This repository provides guide data only, not TV streams.
