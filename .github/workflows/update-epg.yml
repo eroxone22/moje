@@ -1,4 +1,4 @@
-name: Build combined EPG (mujtvprogram.cz + mediaklikk.hu)
+name: Build combined EPG (Czech and Hungarian guide sources)
 
 on:
   workflow_dispatch:
@@ -42,7 +42,7 @@ jobs:
 
       - name: Download both guides into one XMLTV file
         working-directory: upstream-epg
-        run: npm run grab -- --sites=mujtvprogram.cz,mediaklikk.hu --output=../epg/epg.xml --days=2 --maxConnections=3
+        run: npm run grab -- --sites=mujtvprogram.cz,mediaklikk.hu,m.tv.sms.cz,port.hu,tvmusor.hu --output=../epg/epg.xml --days=2 --maxConnections=3
 
       - name: Validate XMLTV output
         run: |
