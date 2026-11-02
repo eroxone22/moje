@@ -1,0 +1,41 @@
+name: Update combined SK-CZ-HU EPG
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 3 * * *"
+  push:
+    paths:
+      - "epg/merge_epg.py"
+      - ".github/workflows/update-epg.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-combined-epg
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Merge XMLTV sources
+        run: python epg/merge_epg.py
+      - name: Commit updated EPG
+        run: |
+          if git diff --quiet -- epg/epg.xml; then
+            echo "EPG is unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add epg/epg.xml
+          git commit -m "Update combined SK-CZ-HU EPG"
+          git push
