@@ -1,0 +1,28 @@
+name: Update IPTV playlist
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+
+jobs:
+  update-playlist:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Merge sources and upload playlist over FTP
+        env:
+          FTP_HOST: \${{ secrets.FTP_HOST }}
+          FTP_PORT: \${{ secrets.FTP_PORT }}
+          FTP_USER: \${{ secrets.FTP_USER }}
+          FTP_PASSWORD: \${{ secrets.FTP_PASSWORD }}
+          FTP_REMOTE_FILE: /ts-mta.g6.cz/web/moje_upravene_s_logami.m3u
+        run: python update_playlist.py
