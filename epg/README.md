@@ -1,6 +1,6 @@
-# Combined XMLTV EPG: Czech and Hungarian sources
+# Combined XMLTV EPG: Czech, Slovak and Hungarian sources
 
-GitHub Actions runs the official `iptv-org/epg` grabber for five sites and writes their programme data into one XMLTV file.
+GitHub Actions runs the official `iptv-org/epg` grabber for six sites and writes their programme data into one XMLTV file.
 
 ## Sources
 
@@ -9,6 +9,7 @@ GitHub Actions runs the official `iptv-org/epg` grabber for five sites and write
 - Hungary: [mediaklikk.hu](https://github.com/iptv-org/epg/tree/master/sites/mediaklikk.hu)
 - Hungary: [port.hu](https://github.com/iptv-org/epg/tree/master/sites/port.hu)
 - Hungary: [tvmusor.hu](https://github.com/iptv-org/epg/tree/master/sites/tvmusor.hu)
+- Slovakia: [webtv.sk](https://github.com/iptv-org/epg/tree/master/sites/webtv.sk)
 
 ## AquaPlay URL
 
