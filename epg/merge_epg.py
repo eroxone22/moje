@@ -16,9 +16,9 @@ USER_AGENT = "Mozilla/5.0 (compatible; SK-CZ-HU-EPG-Merger/1.0)"
 # Required country feeds first; optional Rytec additions improve coverage.
 SOURCES = [
     ("Slovakia / Rytec", [
-        "https://www.xmltvepg.nl/rytecSK_Basic.xz",
-        "https://rytecepg.wanwizard.eu/rytecSK_Basic.xz",
-        "https://epg.vuplus-community.net/rytecSK_Basic.xz",
+        "http://www.xmltvepg.nl/rytecSK_Basic.xz",
+        "http://rytecepg.wanwizard.eu/rytecSK_Basic.xz",
+        "http://epg.vuplus-community.net/rytecSK_Basic.xz",
     ], True),
     ("Czechia / IPTV-EPG", [
         "https://iptv-epg.org/files/epg-cz.xml",
@@ -26,15 +26,20 @@ SOURCES = [
     ("Hungary / IPTV-EPG", [
         "https://iptv-epg.org/files/epg-hu.xml",
     ], True),
+    ("Czechia / Rytec basic", [
+        "http://www.xmltvepg.nl/rytecCZ_Basic.xz",
+        "http://rytecepg.wanwizard.eu/rytecCZ_Basic.xz",
+        "http://epg.vuplus-community.net/rytecCZ_Basic.xz",
+    ], False),
     ("Czechia+Slovakia / Rytec common", [
-        "https://www.xmltvepg.nl/rytecCZ_SK_Common.xz",
-        "https://rytecepg.wanwizard.eu/rytecCZ_SK_Common.xz",
-        "https://epg.vuplus-community.net/rytecCZ_SK_Common.xz",
+        "http://www.xmltvepg.nl/rytecCZ_SK_Common.xz",
+        "http://rytecepg.wanwizard.eu/rytecCZ_SK_Common.xz",
+        "http://epg.vuplus-community.net/rytecCZ_SK_Common.xz",
     ], False),
     ("Czechia+Slovakia / Rytec sport-movies", [
-        "https://www.xmltvepg.nl/rytecCZ_SK_SportMovies.xz",
-        "https://rytecepg.wanwizard.eu/rytecCZ_SK_SportMovies.xz",
-        "https://epg.vuplus-community.net/rytecCZ_SK_SportMovies.xz",
+        "http://www.xmltvepg.nl/rytecCZ_SK_SportMovies.xz",
+        "http://rytecepg.wanwizard.eu/rytecCZ_SK_SportMovies.xz",
+        "http://epg.vuplus-community.net/rytecCZ_SK_SportMovies.xz",
     ], False),
 ]
 
